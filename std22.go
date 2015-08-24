@@ -2,10 +2,9 @@
 // Copyright 2015 David Crosby
 package main
 
-import(
-	"net"
+import (
 	"io"
-//	"fmt"
+	"net"
 )
 
 func handleConnection(conn net.Conn) {
@@ -15,7 +14,7 @@ func handleConnection(conn net.Conn) {
 	var line, col int
 	for {
 		for col = 0; col < 71; col++ {
-			io.WriteString(conn, string('!' + ((col + line) % 94)))
+			io.WriteString(conn, string('!'+((col+line)%94)))
 		}
 		io.WriteString(conn, "\n")
 		line++

@@ -3,9 +3,9 @@
 
 package main
 
-import(
-	"net"
+import (
 	"io"
+	"net"
 	"time"
 )
 

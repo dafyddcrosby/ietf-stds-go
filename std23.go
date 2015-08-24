@@ -2,9 +2,9 @@
 // Copyright 2015 David Crosby
 package main
 
-import(
-	"net"
+import (
 	"io"
+	"net"
 )
 
 func handleConnection(conn net.Conn) {

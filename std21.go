@@ -2,7 +2,7 @@
 // Copyright 2015 David Crosby
 package main
 
-import(
+import (
 	"net"
 )
 
