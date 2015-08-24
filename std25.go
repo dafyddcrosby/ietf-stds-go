@@ -10,10 +10,9 @@ import(
 )
 
 func handleConnection(conn net.Conn) {
-
+	defer conn.Close()
 	io.WriteString(conn, string(time.Now().Format("Monday, January 2, 2006, 15:04:05-MST")))
 	io.WriteString(conn, "\n")
-	conn.Close()
 }
 
 func main() {
@@ -29,6 +28,5 @@ func main() {
 		}
 		go handleConnection(conn)
 	}
-
 
 }

@@ -11,6 +11,7 @@ import(
 func handleConnection(conn net.Conn) {
 	// According to the RFC any sort of data can be sent, but it's
 	// recommended that a recognizable pattern is used "in tha data"
+	defer conn.Close()
 	var line, col int
 	for {
 		for col = 0; col < 71; col++ {
@@ -22,7 +23,6 @@ func handleConnection(conn net.Conn) {
 			line = 0
 		}
 	}
-	conn.Close()
 }
 
 func main() {
@@ -38,6 +38,5 @@ func main() {
 		}
 		go handleConnection(conn)
 	}
-
 
 }

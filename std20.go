@@ -8,8 +8,8 @@ import(
 )
 
 func handleConnection(conn net.Conn) {
+	defer conn.Close()
 	io.Copy(conn, conn)
-	conn.Close()
 }
 
 func main() {
@@ -25,6 +25,5 @@ func main() {
 		}
 		go handleConnection(conn)
 	}
-
 
 }

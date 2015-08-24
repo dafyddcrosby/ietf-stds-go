@@ -8,8 +8,8 @@ import(
 )
 
 func handleConnection(conn net.Conn) {
+	defer conn.Close()
 	io.WriteString(conn, "Test test STD 23 has been implemented!\n")
-	conn.Close()
 }
 
 func main() {
@@ -25,6 +25,5 @@ func main() {
 		}
 		go handleConnection(conn)
 	}
-
 
 }

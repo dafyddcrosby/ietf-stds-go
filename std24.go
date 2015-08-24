@@ -2,7 +2,6 @@
 // This service is a bad idea, but whatevs. Don't run it!
 // Copyright 2015 David Crosby
 
-
 package main
 
 import(
@@ -12,13 +11,13 @@ import(
 )
 
 func handleConnection(conn net.Conn) {
+	defer conn.Close()
 	out, err := exec.Command("who").Output()
 	if err != nil {
 		conn.Close()
 		return
 	}
 	io.WriteString(conn, string(out))
-	conn.Close()
 }
 
 func main() {
@@ -34,6 +33,5 @@ func main() {
 		}
 		go handleConnection(conn)
 	}
-
 
 }
